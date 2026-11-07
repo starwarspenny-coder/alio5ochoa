@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Alio – Roblox Developer Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#000;--ink:#f2f2f2;--muted:#9a9a9a;--line:#242424;--card:#0c0c0c;--accent:#ff4a3f;color-scheme:dark;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background-color:#141414;color:var(--ink);font:400 17px/1.65 Inter,system-ui,sans-serif}
+h1,h2,h3{font-family:"Space Grotesk",Inter,system-ui,sans-serif;margin:0;line-height:1.05}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:rgba(0,0,0,.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);z-index:5}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+header b{font:700 19px "Space Grotesk",sans-serif}
+header a{text-decoration:none;margin-left:22px;font-size:15px;color:var(--muted)}
+header a:hover{color:var(--ink)}
+.hero{padding:96px 0 80px}
+.hero h1{font-size:clamp(46px,9vw,112px);font-weight:700;letter-spacing:-.03em;max-width:13ch}
+.hero p{max-width:50ch;color:var(--muted);font-size:20px;margin:28px 0 36px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 24px;border-radius:10px;text-decoration:none;font-weight:500;border:1px solid var(--ink)}
+.btn.main{background:var(--ink);color:var(--bg)}
+.btn:hover{border-color:var(--accent)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats div{padding:28px 24px;border-right:1px solid var(--line)}
+.stats div:last-child{border-right:0}
+.stats b{display:block;font:700 36px "Space Grotesk",sans-serif}
+.stats span{color:var(--muted);font-size:15px}
+section{padding:84px 0}
+h2{font-size:clamp(32px,5vw,52px);font-weight:700;letter-spacing:-.02em;margin-bottom:14px}
+.lead{color:var(--muted);max-width:56ch;margin:0 0 40px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.proj{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:border-color .2s}
+.proj:hover{border-color:var(--accent)}
+.thumb{aspect-ratio:16/9;display:grid;place-items:center;background:linear-gradient(135deg,#1b1b1b,#3a3a3a);color:#fff;font:700 26px "Space Grotesk",sans-serif}
+.proj .txt{padding:20px 22px 24px}
+.proj h3{font-size:23px;margin-bottom:8px}
+.proj p{margin:0 0 14px;color:var(--muted);font-size:16px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0;list-style:none}
+.tags li{border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-size:13px;color:var(--muted)}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:0;border-top:1px solid var(--line)}
+.skills div{padding:26px 24px 26px 0;border-bottom:1px solid var(--line)}
+.skills h3{font-size:21px;margin-bottom:6px}
+.skills p{margin:0;color:var(--muted);font-size:16px}
+.launch{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 28px;margin-bottom:40px;display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
+.launch h3{font-size:26px}
+.launch p{margin:4px 0 0;color:var(--muted);font-size:15px}
+.cd{display:flex;gap:12px}
+.cd div{border:1px solid var(--line);border-radius:12px;padding:10px 16px;min-width:78px;text-align:center}
+.cd b{display:block;font:700 34px/1 "Space Grotesk",sans-serif;font-variant-numeric:tabular-nums}
+.cd span{font-size:13px;color:var(--muted)}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.about p{color:var(--muted);margin:0 0 16px}
+.about h3{font-size:22px;margin:32px 0 12px}
+.about ul{margin:0;padding-left:20px;color:var(--muted)}
+.about li{margin-bottom:6px}
+.contact{border-top:1px solid var(--line)}
+.contact a.big{display:inline-block;font:700 clamp(26px,5vw,52px) "Space Grotesk",sans-serif;text-decoration:none;border-bottom:3px solid var(--accent);margin-top:8px;word-break:break-all}
+footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+@media (max-width:720px){.about{grid-template-columns:1fr;gap:8px}.stats div{border-right:0;border-bottom:1px solid var(--line)}header a{margin-left:14px}}
+.bg{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:#141414}
+.bg::after{content:"";position:absolute;inset:0;background:linear-gradient(rgba(12,12,12,.5),rgba(12,12,12,.82))}
+.tilt{position:absolute;left:-30%;top:-30%;width:160%;height:160%;transform:rotate(-18deg);display:flex;flex-direction:column;justify-content:center;gap:20px}
+.row{display:flex;gap:20px;width:max-content;animation:slide 70s linear infinite}
+.row:nth-child(even){animation-direction:reverse}
+.row:nth-child(3n){animation-duration:95s}
+.row:nth-child(3n+1){animation-duration:55s}
+.tile{flex:none;width:190px;height:190px;border-radius:22px}
+@keyframes slide{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.row{animation:none}}
+main,footer{position:relative;z-index:1}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"><div class="tilt" id="tilt"></div></div>
+<header><div class="wrap"><b>Alio</b><nav><a href="#work">Work</a><a href="#skills">Skills</a><a href="#about">About</a><a href="#contact">Contact</a></nav></div></header>
+
+<main>
+<div class="hero"><div class="wrap">
+<h1>I build Roblox games that work.</h1>
+<p>Scripter and game developer. I make clean systems, smooth gameplay and games players come back to.</p>
+<div class="btns"><a class="btn main" href="#work">See my work</a><a class="btn" href="#contact">Hire me</a></div>
+</div></div>
+
+<div class="wrap"><div class="launch"><div><h3 id="launchTitle">Website release in</h3><p>Full launch on December 6, 2026</p></div><div class="cd"><div><b id="cd-d">--</b><span>days</span></div><div><b id="cd-h">--</b><span>hours</span></div><div><b id="cd-m">--</b><span>minutes</span></div><div><b id="cd-s">--</b><span>seconds</span></div></div></div></div>
+<div class="wrap"><div class="stats">
+<div><b>6+</b><span>Game systems built</span></div>
+<div><b>5 yrs</b><span>Using Roblox Studio</span></div>
+<div><b>Luau</b><span>Main language</span></div>
+<div><b>Open</b><span>For commissions</span></div>
+</div></div>
+
+<section id="work"><div class="wrap">
+<h2>Selected work</h2>
+<p class="lead">My projects will be added here soon.</p>
+<div class="grid">
+</div>
+</div></section>
+
+<section id="skills" style="border-top:1px solid var(--line)"><div class="wrap">
+<h2>What I do</h2>
+<p class="lead">Simple, tidy work that is easy to build on.</p>
+<div class="skills">
+<div><h3>Scripting</h3><p>Luau systems for gameplay, shops, rounds and saving.</p></div>
+<div><h3>Client and server</h3><p>RemoteEvents and RemoteFunctions set up the safe way.</p></div>
+<div><h3>User interface</h3><p>Menus and HUDs that are clear and easy to use.</p></div>
+<div><h3>Game security</h3><p>Server checks that stop common exploits.</p></div>
+</div>
+</div></section>
+
+<section id="about" style="border-top:1px solid var(--line)"><div class="wrap about">
+<div><h2>About me</h2></div>
+<div><p>Hi, I’m Alio! I’m a Roblox developer who enjoys making games and creating different game systems. I’ve been scripting for over 5 years and have learned a lot along the way.</p><p>I focus on making clean, simple, and working code. I want the games and systems I make to feel smooth and fun for players.</p>
+<h3>What I can do</h3>
+<ul><li>Make custom game systems</li><li>Script gameplay features</li><li>Fix bugs and errors</li><li>Make UI systems</li><li>Improve existing systems</li><li>Create systems from scratch</li><li>Help develop full Roblox games</li></ul>
+<h3>Why work with me?</h3>
+<ul><li>Over 5 years of scripting experience</li><li>I write clean and easy-to-read code</li><li>I meet deadlines and finish my work on time</li><li>I listen to what the client wants</li><li>I keep in touch during development</li><li>I make sure everything works before finishing</li></ul>
+<p style="margin-top:28px">I’m currently available for work and open to new projects. I always try my best to deliver good work and make sure my clients are happy with what they receive.</p><p>If you need a Roblox scripter for your game or project, feel free to contact me. I’d be happy to work with you!</p></div>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap">
+<h2>Work with me</h2>
+<p class="lead">Have a game idea or need a scripter? Send me a message.</p>
+<a class="big" href="mailto:wwgwwdhshd@gmail.com">wwgwwdhshd@gmail.com</a>
+<p class="lead" style="margin-top:20px">Also on Discord: alia5ochoa</p>
+</div></section>
+</main>
+
+<footer><div class="wrap">© 2026 Alio. All rights reserved.</div></footer>
+<script>
+(function(){
+var t=document.getElementById("tilt"),h="";
+for(var r=0;r<9;r++){
+var row="";
+for(var i=0;i<16;i++){
+var hue=(i*47+r*83)%360,a=20+(i*13+r*7)%30;
+row+='<div class="tile" style="background:radial-gradient(circle at '+(20+(i*17)%60)+'% 25%,rgba(255,255,255,.35),transparent 45%),linear-gradient(135deg,hsl('+hue+' 70% 55%),hsl('+((hue+50)%360)+' 70% '+a+'%))"></div>';
+}
+h+='<div class="row">'+row+row+'</div>';
+}
+t.innerHTML=h;
+})();
+(function(){
+var target=new Date(2026,11,6,0,0,0).getTime();
+function p(n){return String(n).padStart(2,"0")}
+function tick(){
+var s=Math.floor(Math.max(0,target-Date.now())/1000);
+document.getElementById("cd-d").textContent=Math.floor(s/86400);
+document.getElementById("cd-h").textContent=p(Math.floor(s%86400/3600));
+document.getElementById("cd-m").textContent=p(Math.floor(s%3600/60));
+document.getElementById("cd-s").textContent=p(s%60);
+if(s===0){document.getElementById("launchTitle").textContent="The website is live!"}
+}
+tick();setInterval(tick,1000);
+})();
+</script>
+</body>
+</html>
